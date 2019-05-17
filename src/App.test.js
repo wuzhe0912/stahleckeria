@@ -1,3 +1,4 @@
+// 用於自動化測試
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
