@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 // Fragment 是 React 提供一種佔位符，解決 JSX 語法返回必須在外層有一個 div 的問題
 // Fragment 在 chrome 開發者工具中的 Elements 不會被顯示
+import './style.css'
 
 // 使用 class 的格式，是比較舊的寫法，在16.8之後版本，改直接調用函數
 class TodoList extends React.Component {
@@ -18,9 +19,11 @@ class TodoList extends React.Component {
     return (
       <Fragment>
         <div className="wrap">
+          {/* 在JSX當中，label 標籤使用的 for 必須改採用 htmlFor */}
+          <label htmlFor="insertArea">輸入內容</label>
           {/* 將input的內容，和state數據庫進行雙向綁定 */}
           {/* 運用 ES6 語法中的 bind 函數，將 this 指向轉為整個組件 */}
-          <input value={this.state.inputValue} onChange={this.handleInputChange.bind(this)}/>
+          <input id="insertArea" className="input" value={this.state.inputValue} onChange={this.handleInputChange.bind(this)}/>
           <button onClick={this.handleBtnClick.bind(this)}>送出 Button</button>
         </div>
         <ul>
