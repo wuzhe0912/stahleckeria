@@ -9,13 +9,17 @@ class TodoItem extends Component {
   }
 
   render () {
+    let { content } = this.props
     return (
       // props 是子組件接收父組件參數的規定寫法
-      <li onClick={this.handleClick}>{this.props.content}</li>
+      <li onClick={this.handleClick}>
+        {content}
+      </li>
     )
   }
   handleClick () {
-    this.props.deleteItem(this.props.value)
+    let { deleteItem, value } = this.props
+    deleteItem(value)
   }
 }
 
