@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 // Fragment 是 React 提供一種佔位符，解決 JSX 語法返回必須在外層有一個 div 的問題
 // Fragment 在 chrome 開發者工具中的 Elements 不會被顯示
+import TodoItem from './TodoItem'
 import './style.css'
 
 // 使用 class 的格式，是比較舊的寫法，在16.8之後版本，改直接調用函數
@@ -30,12 +31,15 @@ class TodoList extends React.Component {
           {
             this.state.list.map((node, index) => {
               return (
-                <li
-                  key={index}
-                  onClick={this.handleItemDelete.bind(this, index)}
-                >
-                  {node}
-                </li>
+                <ul key={index}>
+                  {/* 父組件可以透過屬性，向子組件傳值，左邊是自訂命名，右側則是準備傳給子組件的參數 */}
+                  <TodoItem
+                    content={node}
+                    value={index}
+                    // 屬性也可以傳遞父組件的函數，為了避免子組件無法找到this指向，必須在傳參時連帶調用bind方法
+                    deleteItem={this.handleItemDelete.bind(this)}
+                  />
+                </ul>
               )
             })
           }
