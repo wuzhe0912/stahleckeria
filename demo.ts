@@ -22,3 +22,14 @@ const total = getTotal(1, 2);
 console.log(total);
 
 // 當 typescript 可以自行判斷型別時，任其自行判斷，反之，則需加上註釋
+// 上面的函數沒有針對 return 的值進行嚴謹判斷，因此若拿到 string 並不會提示錯誤，可改寫為如下：
+const newGetTotal = (val: number, subVal: number): number => {
+  return val + subVal
+}
+const newTotal = newGetTotal(2, 7);
+console.log(newTotal);
+
+// 若沒有 return 的值，則添加 void，此時填寫 return 反而會被報錯
+const sayHi = (): void => {
+  console.log('Hello Demo');
+};
