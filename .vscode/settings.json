@@ -1,0 +1,23 @@
+{
+  "editor.fontSize": 20,
+  "files.autoSave": "onFocusChange",
+  // --- Prettier ---
+  // change window auto save
+  "files.autoSave": "onWindowChange",
+  // 存檔後自動執行
+  "editor.formatOnSave": true,
+  "[javascript, typescript]": {
+      "editor.formatOnSave": true
+  },
+  // 每行寬度
+  "prettier.printWidth": 100,
+  // 使用單引號
+  "prettier.singleQuote": true,
+  // 句尾加上分號
+  "prettier.semi": true,
+  // 字與括號保有空格
+  "prettier.bracketSpacing": true,
+  // --- Eslint ---
+  // eslint 自動修正
+  // "eslint.autoFixOnSave": true,
+}
