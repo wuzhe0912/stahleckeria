@@ -6,11 +6,12 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: [
-    './src/modules/index.js',
+    './src/modules/index.ts',
     './src/scss/main.scss'
   ],
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join(__dirname, 'dist'), // root
+    open: true, // auto open browsers
     compress: true,
     port: 3002
   },
@@ -19,6 +20,9 @@ module.exports = {
     filename: './js/[name].js?[hash:8]'
   },
   devtool: "source-map",
+  resolve: {
+    "extensions": ['.ts', '.js', '.json']
+  },
   module: {
     rules: [
       {
@@ -59,6 +63,11 @@ module.exports = {
             loader: 'pug-html-loader'
           }
         ]
+      },
+      {
+        test: /\.ts$/,
+        use: ['ts-loader'],
+        exclude: /node_modules/
       }
     ]
   },
